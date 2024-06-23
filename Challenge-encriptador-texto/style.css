@@ -1,0 +1,14 @@
+body{
+  background: rgb(230, 233, 235);  
+}
+.logoAlura{
+    width: 32px;
+    height: 51px;;
+}
+ .cajatexto{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
