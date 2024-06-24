@@ -1,14 +1,34 @@
-body{
-  background: rgb(230, 233, 235);  
+.cointainer-fluid{
+  font-family: Arial, sans-serif; 
 }
+
 .logoAlura{
     width: 32px;
-    height: 51px;;
+    height: 51px;
+    margin-left:10px;
+    margin-top: 5px;;
 }
- .cajatexto{
+
+ Form{
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  height: 100%;
+  flex-direction:column;
+  margin-top:25px;
+  gap:20px;
+}
+
+textarea {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width:100px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }
