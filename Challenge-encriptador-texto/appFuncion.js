@@ -1,27 +1,48 @@
 function encriptarTextoIngresado() {
     let textoIngresado = document.getElementById("textoIngresado").value;
-    let clave = CryptoJS.enc.Utf8.parse('1234567890123456'); 
-    let iv = CryptoJS.enc.Utf8.parse('1234567890123456');
-    let textoIngresadoEncriptado = CryptoJS.AES.encrypt(textoIngresado, clave, { iv: iv }).toString();
-    document.getElementById("salidadTexto").value = textoIngresadoEncriptado;
-}
+    if (textoIngresado.length != 0) {
+         let textoIngresadoEncriptado = textoIngresado
+             .replace(/i/gi, "imes")
+             .replace(/e/gi, "enter")
+             .replace(/a/gi, "ai")
+             .replace(/o/gi, "ober")
+             .replace(/u/gi, "ufat");
+             document.getElementById("salidadTexto").value = textoIngresadoEncriptado ;
+    } else {
+        document.getElementById("salidadTexto").value = "No se Ingreso Texto para Encriptar";
+    }
+  }
 function mostrarTextoEncriptado() {
-    const textoIngresado = document.getElementById('textoIngresado').value;
-    const salidadTexto = document.getElementById('salidadTexto');
+    let textoIngresado = document.getElementById('textoIngresado').value;
+    let salidadTexto = document.getElementById('salidadTexto');
     salidadTexto.textContent = encriptarTextoIngresado();
     document.getElementById('textoIngresado').value = "";
 }
+
 function desencriptarTexto() {
-    let textoEncriptado = document.getElementById('salidadTexto').value;
-    let clave = CryptoJS.enc.Utf8.parse('1234567890123456'); 
-    let iv = CryptoJS.enc.Utf8.parse('1234567890123456'); 
-    let bytes = CryptoJS.AES.decrypt(textoEncriptado, clave, { iv: iv });
-    let textoDesencriptado = bytes.toString(CryptoJS.enc.Utf8);
-    document.getElementById('textoIngresado').value = textoDesencriptado;
+    let textoEncriptado = document.getElementById('textoIngresado').value;
+    if (textoEncriptado.length != 0) {
+        let textoDesencriptado = textoEncriptado
+            .replace(/imes/gi, "i")
+            .replace(/enter/gi, "e")
+            .replace(/ai/gi,"a")
+            .replace(/ober/gi, "o")
+            .replace(/ufat/gi, "u");
+            document.getElementById("salidadTexto").value = textoDesencriptado ;
+   } else {
+        document.getElementById('textoIngresado').value = "No se Ingreso Texto para Desencriptar";
+   }
 }
 function mostrarTextoDencriptado() {
-    const textoIngresado = document.getElementById('salidadTexto').value;
-    /**const salidadTextoDesencriptado = document.getElementById('salidadTextoDesencriptado');*/
-    textoIngresado.textContent = desencriptarTexto();
-    document.getElementById('salidadTexto').value = "";
+    let textoIngresado = document.getElementById('textoIngresado').value;
+    let salidadTexto = document.getElementById('salidadTexto');
+    salidadTexto.textContent = desencriptarTexto();
+    document.getElementById('textoIngresado').value = "";
 }
+function copyToClipboard() {
+      let texto=document.getElementById('salidadTexto').value;
+      navigator.clipboard.writeText(texto).then(function() {
+      }).catch(function(err) {
+        console.error('Error al copiar el texto: ', err);
+      });
+    }
