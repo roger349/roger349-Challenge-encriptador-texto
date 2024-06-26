@@ -9,7 +9,7 @@ function encriptarTextoIngresado() {
              .replace(/u/gi, "ufat");
              document.getElementById("salidadTexto").value = textoIngresadoEncriptado ;
     } else {
-        document.getElementById("salidadTexto").value = "No se Ingreso Texto para Encriptar";
+        swal('Debes ingresar un texto para Encriptar');
     }
   }
 function mostrarTextoEncriptado() {
@@ -30,7 +30,7 @@ function desencriptarTexto() {
             .replace(/ufat/gi, "u");
             document.getElementById("salidadTexto").value = textoDesencriptado ;
    } else {
-        document.getElementById('textoIngresado').value = "No se Ingreso Texto para Desencriptar";
+      swal('Debes ingresar un texto para Desencriptar');
    }
 }
 function mostrarTextoDencriptado() {
@@ -46,3 +46,4 @@ function copyToClipboard() {
         console.error('Error al copiar el texto: ', err);
       });
     }
+   

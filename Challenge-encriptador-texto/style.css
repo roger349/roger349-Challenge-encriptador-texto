@@ -1,13 +1,12 @@
-.cointainer-fluid{
-  font-family: Arial, sans-serif; 
+body{
+  background-image:url(img/oracle-next-edu.jpg);
+  background-size:cover;
 }
-
-.logoAlura{
-    width: 32px;
-    height: 51px;
-    margin-left:10px;
-    margin-top: 5px;
-    text-decoration: none;
+img {
+    width: 100px;
+    height: 60px;
+    margin-top: 10px;
+    
 }
 
  Form{
@@ -20,23 +19,30 @@
 textarea {
   text-decoration: none;
   width: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid #d3bfbf;
   border-radius: 5px;
+  background-color:rgb(199, 180, 167);
+  font-family: sans-serif;
+  color: #131212;
 }
 
 button {
   width:100px;
-  background-color: #007BFF;
+  background-color: #1e607a;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0a335f;
 }
 .botones{
   display: flex;
   flex-direction: row;
   gap:20px;
   margin-left:38px;
+}
+#imagenAluraONe{
+ width: 500px;
+ height: 500px;
 }
