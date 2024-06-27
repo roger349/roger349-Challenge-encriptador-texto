@@ -9,31 +9,29 @@
     rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
-<body>
-  <div class="fondo">  
-    <div class="logoAlura"><img src="img/alura.svg"> </div>
+<body> 
+    <div><img id="logoAlura" src="img/alura.svg"> </div>
     <div class="cointainer-fluid">
-      <div class="row" style="margin-left:100px">
-        <div class="col-3">
-            <form style="align-items:center">
-                <textarea id="textoIngresado" rows="15" cols="30" placeholder="ingresar texto"></textarea>
-                <p style="font-family: sans-serif;font-size: 10px">Se debe ingresar letras minusculas y sin acento</p> 
+      <div class="row">
+        <div class="col-4">
+            <form>
+                <textarea id="textoIngresado" placeholder="ingresar texto"></textarea>
+                <p>Se debe ingresar letras minusculas y sin acento</p> 
             </form>
             <div class="botones">
                 <button type="button" onclick="mostrarTextoEncriptado()">Encriptar</button>
                 <button type="button" onclick="mostrarTextoDencriptado()">Desencriptar</button>
             </div>
         </div>
-        <div class="col-3">
-            <form style="align-items: center">
-                <textarea id="salidadTexto" rows="15" cols="30"></textarea>
-                <button type="button" onclick="copyToClipboard()">copiar</button>
+        <div class="col-4">
+            <form>
+                <textarea id="salidadTexto"></textarea>
+                <button class="botonCopiar" type="button" onclick="copyToClipboard()">copiar</button>
             </form>
         </div>
-        <div class="col-6"><img id= "imagenAluraONe" src="img/imagenFondo.png"></div>
+        <div class="col-4"><img id="imagenOracle" src="img/imagenOracle.png"></div>
       </div>              
     </div>
-    <script src="appFuncion.js"></script>
-  </div>                  
+    <script src="appFuncion.js"></script>                  
 </body>
 </html>
