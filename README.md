@@ -1,4 +1,4 @@
-Proecto encriptador para one-Alura-Latam
+Proyecto encriptador para one-Alura-Latam
 Roger E. Roldan ----ONE---ALURA----2024
 Elementos de la página
     título de la pagina web
