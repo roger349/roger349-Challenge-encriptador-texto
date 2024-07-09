@@ -58,7 +58,12 @@ textarea {
    align-items: center;
    margin-top:20px;
   }
-
+ footer{
+   margin-top:1%;
+   text-align: center;
+   color:darkblue;
+   font-size: 80%;
+ }
 /*#################375-767#################################
 ############################################################*/
 @media (min-width: 375px) and (max-width: 767px) and (max-height:933px) {
@@ -115,7 +120,7 @@ textarea {
     font-size: 7px;
     margin-left:20px;
    }
-}   
+}  
 /*#################768-1023#################################
 ############################################################*/
 @media (min-width: 768px) and (max-width: 1023px) and (max-height:1174px) {
