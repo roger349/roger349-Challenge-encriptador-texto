@@ -1,33 +1,54 @@
-    function encriptarTextoIngresado() {
-        let textoIngresado = document.getElementById("textoIngresado").value;
-        if (textoIngresado.length !== 0) {
-             let textoIngresadoEncriptado = textoIngresado
-                .replace(/e/gi, "enter")
-                .replace(/i/gi, "imes")
-                .replace(/a/gi, "ai")
-                .replace(/o/gi, "ober")
-                .replace(/u/gi, "ufat");
-                 document.getElementById("salidadTexto").value = textoIngresadoEncriptado ;
-        } else {
-            swal('Debes ingresar un texto para Encriptar');
+   function minusculas(textoIngresado) {
+     for (let i = 0; i < textoIngresado.length; i++) {
+        let char = textoIngresado[i];
+        if (char.toLowerCase() !== char.toUpperCase()) {
+            if (char !== char.toLowerCase()) {
+                return false;
+            }
         }
-      }
+     }
+     return true;
+   } 
+    function acentos(textoIngresado) {
+    return /[áéíóúüÁÉÍÓÚÜ]/.test(textoIngresado);
+    }
+    function encriptarTextoIngresado() {
+    let textoIngresado = document.getElementById("textoIngresado").value;
+        if (textoIngresado.length !== 0) {
+           if (acentos(textoIngresado)===false) { 
+             if (minusculas(textoIngresado)===true) {
+                 let textoIngresadoEncriptado = textoIngresado
+                    .replace(/e/g, "enter")
+                    .replace(/i/g, "imes")
+                    .replace(/a/g, "ai")
+                    .replace(/o/g, "ober")
+                    .replace(/u/g, "ufat");
+                    document.getElementById("salidadTexto").value = textoIngresadoEncriptado ;
+                }  else {
+                    swal('Debes ingresar un texto para Encriptar que tenga todas sus letras en minusculas');   
+                   }
+            } else {
+                 swal('Debes ingresar un texto para Encriptar que tenga todas sus vocales sin acentos y sin caracteres especiales');   
+                }     
+        }  else {
+           swal('Debes ingresar un texto para Encriptar');
+           }         
+    }
     function mostrarTextoEncriptado() {
         let textoIngresado = document.getElementById('textoIngresado').value;
         let salidadTexto = document.getElementById('salidadTexto');
         salidadTexto.textContent = encriptarTextoIngresado();
         document.getElementById('textoIngresado').value = "";
-    }
-    
+    } 
     function desencriptarTexto() {
         let textoEncriptado = document.getElementById('textoIngresado').value;
         if (textoEncriptado.length !== 0) {
             let textoDesencriptado = textoEncriptado
-                .replace(/enter/gi, "e")
-                .replace(/imes/gi, "i")
-                .replace(/ai/gi, "a")
-                .replace(/ober/gi, "o")
-                .replace(/ufat/gi, "u");
+                .replace(/enter/g,"e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
                 document.getElementById("salidadTexto").value = textoDesencriptado ;
        } else {
           swal('Debes ingresar un texto para Desencriptar');
@@ -46,3 +67,7 @@
             console.error('Error al copiar el texto: ', err);
           });
         }
+
+  
+     
+        
