@@ -12,11 +12,15 @@
     function acentos(textoIngresado) {
     return /[áéíóúüÁÉÍÓÚÜ]/.test(textoIngresado);
     }
+    function caracteres(textoIngresado) {
+        return /[^a-zA-Z0-9áéíóúüÁÉÍÓÚÜ\s]/i.test(textoIngresado); /*  /^[^a-zA-ZáéíóúüÁÉÍÓÚÜñÑ]+$/i.test(textoIngresado); */
+        }
     function encriptarTextoIngresado() {
     let textoIngresado = document.getElementById("textoIngresado").value;
         if (textoIngresado.length !== 0) {
-           if (acentos(textoIngresado)===false) { 
-             if (minusculas(textoIngresado)===true) {
+           if (caracteres(textoIngresado)===false) {
+             if (acentos(textoIngresado)===false) { 
+                if (minusculas(textoIngresado)===true) {
                  let textoIngresadoEncriptado = textoIngresado
                     .replace(/e/g, "enter")
                     .replace(/i/g, "imes")
@@ -25,14 +29,17 @@
                     .replace(/u/g, "ufat");
                     document.getElementById("salidadTexto").value = textoIngresadoEncriptado ;
                 }  else {
-                    swal('Debes ingresar un texto para Encriptar que tenga todas sus letras en minusculas');   
-                   }
+                     swal('Debes ingresar un texto para Encriptar que tenga todas sus letras en minusculas');   
+                        }
+              }    else {
+                     swal('Debes ingresar un texto para Encriptar que tenga todas sus vocales sin acentos y sin caracteres especiales');   
+                   }     
             } else {
-                 swal('Debes ingresar un texto para Encriptar que tenga todas sus vocales sin acentos y sin caracteres especiales');   
-                }     
-        }  else {
-           swal('Debes ingresar un texto para Encriptar');
-           }         
+                     swal('Debes ingresar un texto para Encriptar que no contenga caracteres especiales');
+                   } 
+        }     else {
+                     swal('Debes ingresar un texto para Encriptar');
+                   }         
     }
     function mostrarTextoEncriptado() {
         let textoIngresado = document.getElementById('textoIngresado').value;
